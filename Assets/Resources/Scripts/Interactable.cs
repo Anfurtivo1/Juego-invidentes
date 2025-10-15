@@ -90,33 +90,33 @@ public class Interactable : MonoBehaviour
 
     private IEnumerator HoldInteraction()
     {
-        if (playerController != null)
-            playerController.FreezePlayer();
 
+        // Seleccionamos el clip que se va a reproducir (alternativo primero si existe)
         audioSource.clip = alternateClip != null ? alternateClip : defaultClip;
-        audioSource.time = 0f;
+
+        // No reiniciamos necesariamente el tiempo; conserva donde quedó si se reabre
+        // audioSource.time ya conserva el último valor automáticamente
 
         while (true)
         {
             if (Mouse.current.leftButton.isPressed)
             {
                 if (!audioSource.isPlaying)
-                    audioSource.Play();
+                    audioSource.Play(); // Retoma desde audioSource.time
             }
             else
             {
                 if (audioSource.isPlaying)
-                    audioSource.Pause();
+                    audioSource.Pause(); // Pausa sin resetear
             }
 
+            // Si terminó el audio, salimos
             if (!audioSource.isPlaying && audioSource.time >= audioSource.clip.length)
                 break;
 
             yield return null;
         }
 
-        if (playerController != null)
-            playerController.UnfreezePlayer();
     }
 
     private void EndBlock()
