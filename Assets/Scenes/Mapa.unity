@@ -528,7 +528,6 @@ MonoBehaviour:
   mouseSensitivity: 0.3
   cameraTransform: {fileID: 330585546}
   footstepInterval: 10
-  canMove: 1
 --- !u!143 &96428707
 CharacterController:
   m_ObjectHideFlags: 0

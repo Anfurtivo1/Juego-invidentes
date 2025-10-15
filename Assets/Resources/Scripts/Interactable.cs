@@ -6,7 +6,7 @@ using System.Collections;
 public class Interactable : MonoBehaviour
 {
     [Header("ID del objeto para alternativo")]
-    public string interactableID; // Ej: "Cajon1"
+    public string interactableID; // ej: "Cajon1"
 
     [Header("Sonidos")]
     public AudioClip defaultClip;
@@ -21,7 +21,7 @@ public class Interactable : MonoBehaviour
 
     [Header("Requiere mantener click (ej. generador reparando)")]
     public bool holdToPlay = false;
-    public string requiredItemForHold;
+    public string requiredItemForHold; // opcional: objeto que debe tener el jugador para activar alternativo
 
     private AudioSource audioSource;
     private Inventory playerInventory;
@@ -32,6 +32,12 @@ public class Interactable : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.spatialBlend = 1f;
         audioSource.playOnAwake = false;
+
+        if (InteractionFlagManager.Instance != null)
+        {
+            InteractionFlagManager.Instance.UnlockAlternate(interactableID);
+            Debug.Log(interactableID + " desbloqueado manualmente");
+        }
     }
 
     public void Interact(Inventory inventory, SimpleFirstPersonController controller)
@@ -41,26 +47,35 @@ public class Interactable : MonoBehaviour
 
         if (holdToPlay && inventory.HasItem(requiredItemForHold))
         {
-            // Ejemplo: generador que requiere mantener click
+            // Generador: solo inicia si mantiene click
             StartCoroutine(HoldInteraction());
             return;
         }
 
-        // Determinar si el alternativo está desbloqueado
-        bool alternateUnlocked = !string.IsNullOrEmpty(interactableID) &&
+        PlayAudioInteraction();
+    }
+
+    private void PlayAudioInteraction()
+    {
+        // Determinar si el alternativo está desbloqueado y opcionalmente si tienes el item requerido
+        bool hasRequiredItem = string.IsNullOrEmpty(requiredItemForHold) ||
+                               (playerInventory != null && playerInventory.HasItem(requiredItemForHold));
+
+        bool alternateUnlocked = hasRequiredItem &&
+                                 !string.IsNullOrEmpty(interactableID) &&
                                  InteractionFlagManager.Instance != null &&
                                  InteractionFlagManager.Instance.IsAlternateUnlocked(interactableID);
 
         AudioClip clip = (alternateUnlocked && alternateClip != null) ? alternateClip : defaultClip;
 
-        if (clip != null)
+        if (clip != null && playerController != null)
         {
             audioSource.clip = clip;
             audioSource.Play();
 
-            if (blockMovementDuringAudio && playerController != null)
+            if (blockMovementDuringAudio)
             {
-                playerController.canMove = false;
+                playerController.FreezePlayer();
                 Invoke(nameof(EndBlock), clip.length);
             }
         }
@@ -69,13 +84,15 @@ public class Interactable : MonoBehaviour
         if (!string.IsNullOrEmpty(itemToGive))
         {
             if ((giveOnAlternate && alternateUnlocked) || !giveOnAlternate)
-                inventory.AddItem(itemToGive);
+                playerInventory.AddItem(itemToGive);
         }
     }
 
     private IEnumerator HoldInteraction()
     {
-        playerController.canMove = false;
+        if (playerController != null)
+            playerController.FreezePlayer();
+
         audioSource.clip = alternateClip != null ? alternateClip : defaultClip;
         audioSource.time = 0f;
 
@@ -98,12 +115,13 @@ public class Interactable : MonoBehaviour
             yield return null;
         }
 
-        playerController.canMove = true;
+        if (playerController != null)
+            playerController.UnfreezePlayer();
     }
 
     private void EndBlock()
     {
         if (playerController != null)
-            playerController.canMove = true;
+            playerController.UnfreezePlayer();
     }
 }
