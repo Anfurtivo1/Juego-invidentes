@@ -27,7 +27,9 @@ public class IA_Behaviour : MonoBehaviour
         {
             if (!movingToRandom)
             {
-                if (Vector3.Distance(transform.position, player.position) < 1.5f)
+                //Debug.Log("Distancia: " + Vector3.Distance(transform.position, player.position));
+
+                if (Vector3.Distance(transform.position, player.position) < 3f)
                     StartCoroutine(WaitAndCheckPlayer());
                 else
                     agent.SetDestination(player.position);
@@ -77,6 +79,7 @@ public class IA_Behaviour : MonoBehaviour
         else
         {
             // El jugador se movió, seguir persiguiendo
+            Debug.Log("Pos te persigo");
             agent.isStopped = false;
         }
     }
@@ -100,12 +103,12 @@ public class IA_Behaviour : MonoBehaviour
             Vector3 randomPoint = new Vector3(
                 Random.Range(minBounds.x, maxBounds.x), 0, maxBounds.z);
 
-            if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 2f, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 10f, NavMesh.AllAreas))
                 return hit.position;
 
-            Debug.Log(hit.position);
+            Debug.Log("Posible posicion: "+hit.position);
         }
-        Debug.Log(transform.position);
+        Debug.Log("Posicion final al no encontrar otra: "+transform.position);
         // Si no encuentra un punto válido, usa la posición actual
         return transform.position;
 

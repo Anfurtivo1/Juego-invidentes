@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96404d58f70d21a4387de233d9dde314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minBounds: {x: -22.8, y: -23, z: -23}
-  maxBounds: {x: 22.8, y: 23, z: 23}
+  minBounds: {x: 0, y: 0, z: 0}
+  maxBounds: {x: 34.79, y: 1.55, z: -10.54}
   waiting: 0
   movingToRandom: 0
