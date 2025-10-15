@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 [RequireComponent(typeof(CharacterController))]
 public class SimpleFirstPersonController : MonoBehaviour
@@ -8,20 +9,40 @@ public class SimpleFirstPersonController : MonoBehaviour
     public float moveSpeed = 5f;
     public float gravity = -9.81f;
 
-    [Header("Mirar con el ratón")]
+    [Header("Mirar con el ratón (solo horizontal)")]
     public float mouseSensitivity = 1f;
     public Transform cameraTransform;
 
+    [Header("Sonidos de pasos")]
+    [Tooltip("Tiempo extra que debe pasar DESPUÉS de que termine el clip hasta el siguiente paso.")]
+    public float footstepInterval = 0.15f;
+
     private CharacterController controller;
     private Vector3 velocity;
-    private float rotationX = 0f; // Vertical
-    private float rotationY = 0f; // Horizontal
+    private float rotationY = 0f;
+
+    private float originalMoveSpeed;
+    private float originalMouseSensitivity;
+
+    private bool isFrozen = false;
+
+    private Coroutine footstepCoroutine;
+    private bool isMoving;
+
+    private FootstepAudio footstepAudio;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        originalMoveSpeed = moveSpeed;
+        originalMouseSensitivity = mouseSensitivity;
+
+        footstepAudio = GetComponent<FootstepAudio>();
+        if (footstepAudio == null)
+            Debug.LogWarning("No FootstepAudio attached to Player. Añádelo para escuchar pasos.");
     }
 
     void Update()
@@ -31,19 +52,14 @@ public class SimpleFirstPersonController : MonoBehaviour
 
         HandleLook();
         HandleMovement();
+        ApplyGravity();
     }
 
     void HandleLook()
     {
-        // Leemos movimiento del ratón
+        if (isFrozen) return;
+
         Vector2 mouseDelta = Mouse.current.delta.ReadValue() * mouseSensitivity * Time.deltaTime * 100f;
-
-        //// ✅ Vertical (mirar arriba/abajo)
-        //rotationX += mouseDelta.y; // ← invertido respecto al anterior
-        //rotationX = Mathf.Clamp(rotationX, -80f, 80f);
-        //cameraTransform.localRotation = Quaternion.Euler(-rotationX, 0f, 0f);
-
-        // ✅ Horizontal (mirar izquierda/derecha)
         rotationY += mouseDelta.x;
         transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
     }
@@ -52,20 +68,87 @@ public class SimpleFirstPersonController : MonoBehaviour
     {
         Vector3 move = Vector3.zero;
 
-        if (Keyboard.current.wKey.isPressed) move += transform.forward;
-        if (Keyboard.current.sKey.isPressed) move -= transform.forward;
-        if (Keyboard.current.aKey.isPressed) move -= transform.right;
-        if (Keyboard.current.dKey.isPressed) move += transform.right;
+        if (!isFrozen)
+        {
+            if (Keyboard.current.wKey.isPressed) move += transform.forward;
+            if (Keyboard.current.sKey.isPressed) move -= transform.forward;
+            if (Keyboard.current.aKey.isPressed) move -= transform.right;
+            if (Keyboard.current.dKey.isPressed) move += transform.right;
+        }
 
         move.Normalize();
-
         controller.Move(move * moveSpeed * Time.deltaTime);
 
-        // Gravedad
+        bool currentlyMoving = move.magnitude > 0 && controller.isGrounded && !isFrozen;
+
+        if (currentlyMoving && !isMoving)
+        {
+            isMoving = true;
+            if (footstepCoroutine == null)
+                footstepCoroutine = StartCoroutine(FootstepRoutine());
+        }
+        else if (!currentlyMoving && isMoving)
+        {
+            isMoving = false;
+        }
+    }
+
+    void ApplyGravity()
+    {
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
         if (controller.isGrounded && velocity.y < 0)
             velocity.y = -2f;
+    }
+
+    IEnumerator FootstepRoutine()
+    {
+        while (isMoving)
+        {
+            if (footstepAudio != null)
+            {
+                AudioClip clip = footstepAudio.GetRandomFootstepClip();
+                AudioSource src = footstepAudio.EnsureAudioSource();
+
+                if (clip != null && src != null)
+                {
+                    src.clip = clip;
+                    src.Play();
+                    yield return new WaitUntil(() => !src.isPlaying);
+                }
+            }
+
+            float timer = 0f;
+            while (timer < footstepInterval)
+            {
+                if (!isMoving) break;
+                timer += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        footstepCoroutine = null;
+    }
+
+    // Métodos públicos para congelar y descongelar al jugador
+    public void FreezePlayer()
+    {
+        if (!isFrozen)
+        {
+            isFrozen = true;
+            moveSpeed = 0f;
+            mouseSensitivity = 0f;
+        }
+    }
+
+    public void UnfreezePlayer()
+    {
+        if (isFrozen)
+        {
+            isFrozen = false;
+            moveSpeed = originalMoveSpeed;
+            mouseSensitivity = originalMouseSensitivity;
+        }
     }
 }
