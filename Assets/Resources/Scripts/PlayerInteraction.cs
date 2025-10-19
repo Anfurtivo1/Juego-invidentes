@@ -22,7 +22,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-        // Detectar click izquierdo
+        //Detectar click izquierdo
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             Debug.Log("Intento interactuar");
@@ -34,14 +34,14 @@ public class PlayerInteraction : MonoBehaviour
             Ray ray = new Ray(controller.cameraTransform.position, controller.cameraTransform.forward);
             Debug.DrawRay(controller.cameraTransform.position, controller.cameraTransform.forward * interactRange, Color.red);
 
-            // Chequear colisiones solo con layers permitidos
+            //Chequear colisiones solo con layers permitidos
             if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactableMask))
             {
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 if (interactable != null)
                 {
                     Debug.Log("Hay algo con lo que interactuar: " + hit.collider.name);
-                    interactable.Interact(inventory, controller);
+                    interactable.Interact(inventory, controller, hit.point); //Pasamos la posición del impacto
                 }
             }
         }

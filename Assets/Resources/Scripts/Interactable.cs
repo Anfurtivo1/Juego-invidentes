@@ -40,24 +40,28 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    public void Interact(Inventory inventory, SimpleFirstPersonController controller)
+    /// <summary>
+    /// Interacción principal. Ahora recibe la posición del impacto del raycast.
+    /// </summary>
+    public void Interact(Inventory inventory, SimpleFirstPersonController controller, Vector3 hitPoint)
     {
         playerInventory = inventory;
         playerController = controller;
 
         if (holdToPlay && inventory.HasItem(requiredItemForHold))
         {
-            // Generador: solo inicia si mantiene click
-            StartCoroutine(HoldInteraction());
+            StartCoroutine(HoldInteractionAtPoint(hitPoint));
             return;
         }
 
-        PlayAudioInteraction();
+        PlayAudioInteractionAtPoint(hitPoint);
     }
 
-    private void PlayAudioInteraction()
+    /// <summary>
+    /// Reproduce el audio en un emisor temporal en la posición del impacto.
+    /// </summary>
+    private void PlayAudioInteractionAtPoint(Vector3 position)
     {
-        // Determinar si el alternativo está desbloqueado y opcionalmente si tienes el item requerido
         bool hasRequiredItem = string.IsNullOrEmpty(requiredItemForHold) ||
                                (playerInventory != null && playerInventory.HasItem(requiredItemForHold));
 
@@ -68,12 +72,21 @@ public class Interactable : MonoBehaviour
 
         AudioClip clip = (alternateUnlocked && alternateClip != null) ? alternateClip : defaultClip;
 
-        if (clip != null && playerController != null)
+        if (clip != null)
         {
-            audioSource.clip = clip;
-            audioSource.Play();
+            // Crear objeto temporal en la posición del click
+            GameObject tempAudio = new GameObject("TempAudio");
+            tempAudio.transform.position = position;
 
-            if (blockMovementDuringAudio)
+            AudioSource tempSource = tempAudio.AddComponent<AudioSource>();
+            tempSource.clip = clip;
+            tempSource.spatialBlend = 1f; // 1 = 3D. Cambia a 0 si prefieres que el sonido no tenga posición.
+            tempSource.Play();
+
+            // Destruir después de que termine el sonido
+            Destroy(tempAudio, clip.length);
+
+            if (blockMovementDuringAudio && playerController != null)
             {
                 playerController.FreezePlayer();
                 Invoke(nameof(EndBlock), clip.length);
@@ -88,35 +101,41 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    private IEnumerator HoldInteraction()
+    /// <summary>
+    /// Versión adaptada para interacciones de "mantener pulsado" con sonido 3D en el punto de impacto.
+    /// </summary>
+    private IEnumerator HoldInteractionAtPoint(Vector3 position)
     {
+        AudioClip clip = alternateClip != null ? alternateClip : defaultClip;
+        if (clip == null) yield break;
 
-        // Seleccionamos el clip que se va a reproducir (alternativo primero si existe)
-        audioSource.clip = alternateClip != null ? alternateClip : defaultClip;
+        GameObject tempAudio = new GameObject("TempHoldAudio");
+        tempAudio.transform.position = position;
 
-        // No reiniciamos necesariamente el tiempo; conserva donde quedó si se reabre
-        // audioSource.time ya conserva el último valor automáticamente
+        AudioSource tempSource = tempAudio.AddComponent<AudioSource>();
+        tempSource.clip = clip;
+        tempSource.spatialBlend = 1f;
 
         while (true)
         {
             if (Mouse.current.leftButton.isPressed)
             {
-                if (!audioSource.isPlaying)
-                    audioSource.Play(); // Retoma desde audioSource.time
+                if (!tempSource.isPlaying)
+                    tempSource.Play();
             }
             else
             {
-                if (audioSource.isPlaying)
-                    audioSource.Pause(); // Pausa sin resetear
+                if (tempSource.isPlaying)
+                    tempSource.Pause();
             }
 
-            // Si terminó el audio, salimos
-            if (!audioSource.isPlaying && audioSource.time >= audioSource.clip.length)
+            if (!tempSource.isPlaying && tempSource.time >= tempSource.clip.length)
                 break;
 
             yield return null;
         }
 
+        Destroy(tempAudio);
     }
 
     private void EndBlock()
