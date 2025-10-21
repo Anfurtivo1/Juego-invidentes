@@ -134,21 +134,13 @@ public class SimpleFirstPersonController : MonoBehaviour
     // Métodos públicos para congelar y descongelar al jugador
     public void FreezePlayer()
     {
-        if (!isFrozen)
-        {
-            isFrozen = true;
-            moveSpeed = 0f;
-            mouseSensitivity = 0f;
-        }
+        moveSpeed = 0f;
+        mouseSensitivity = 0f;
     }
 
     public void UnfreezePlayer()
     {
-        if (isFrozen)
-        {
-            isFrozen = false;
-            moveSpeed = originalMoveSpeed;
-            mouseSensitivity = originalMouseSensitivity;
-        }
+        moveSpeed = originalMoveSpeed;
+        mouseSensitivity = originalMouseSensitivity;
     }
 }
