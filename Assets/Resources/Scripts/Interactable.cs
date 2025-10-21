@@ -1,16 +1,17 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.SceneManagement;  // Necesario para reiniciar la escena
 
 [RequireComponent(typeof(AudioSource))]
 public class Interactable : MonoBehaviour
 {
-    [Header("ID del objeto para alternativo")]
-    public string interactableID; //ej: "Cajon1"
+    [Header("Identificador (opcional)")]
+    public string interactableID; // Por si lo necesitas para debug
 
     [Header("Sonidos")]
     public AudioClip defaultClip;
-    public AudioClip alternateClip; //por ejemplo rebuscar
+    public AudioClip alternateClip; // Por ejemplo, rebuscar con energía
 
     [Header("Bloquear movimiento mientras suena")]
     public bool blockMovementDuringAudio = false;
@@ -21,28 +22,24 @@ public class Interactable : MonoBehaviour
 
     [Header("Requiere mantener click (ej. generador reparando)")]
     public bool holdToPlay = false;
-    public string requiredItemForHold; //objeto que debe tener el jugador para activar alternativo
+    public string requiredItemForHold; // Objeto que debe tener el jugador para activar un "hold"
+
+    [Header("Requiere ítem para alternativo")]
+    public string requiredItemForAlternate; // Ej: "reparar1"
 
     private AudioSource audioSource;
     private Inventory playerInventory;
     private SimpleFirstPersonController playerController;
+
+    private float currentTime = 0f; // Guarda el tiempo del audio cuando se pausa
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.spatialBlend = 1f;
         audioSource.playOnAwake = false;
-
-        if (InteractionFlagManager.Instance != null)
-        {
-            InteractionFlagManager.Instance.UnlockAlternate(interactableID);
-            Debug.Log(interactableID + " desbloqueado manualmente");
-        }
     }
 
-    /// <summary>
-    /// Interacción principal. Ahora recibe la posición del impacto del raycast.
-    /// </summary>
     public void Interact(Inventory inventory, SimpleFirstPersonController controller, Vector3 hitPoint)
     {
         playerInventory = inventory;
@@ -57,30 +54,22 @@ public class Interactable : MonoBehaviour
         PlayAudioInteractionAtPoint(hitPoint);
     }
 
-    /// <summary>
-    /// Reproduce el audio en un emisor temporal en la posición del impacto.
-    /// </summary>
     private void PlayAudioInteractionAtPoint(Vector3 position)
     {
-        bool hasRequiredItem = string.IsNullOrEmpty(requiredItemForHold) ||
-                               (playerInventory != null && playerInventory.HasItem(requiredItemForHold));
+        bool canDoAlternate = !string.IsNullOrEmpty(requiredItemForAlternate) &&
+                              playerInventory != null &&
+                              playerInventory.HasItem(requiredItemForAlternate);
 
-        bool alternateUnlocked = hasRequiredItem &&
-                                 !string.IsNullOrEmpty(interactableID) &&
-                                 InteractionFlagManager.Instance != null &&
-                                 InteractionFlagManager.Instance.IsAlternateUnlocked(interactableID);
-
-        AudioClip clip = (alternateUnlocked && alternateClip != null) ? alternateClip : defaultClip;
+        AudioClip clip = (canDoAlternate && alternateClip != null) ? alternateClip : defaultClip;
 
         if (clip != null)
         {
-            // Crear objeto temporal en la posición del click
             GameObject tempAudio = new GameObject("TempAudio");
             tempAudio.transform.position = position;
 
             AudioSource tempSource = tempAudio.AddComponent<AudioSource>();
             tempSource.clip = clip;
-            tempSource.spatialBlend = 1f; // 1 = 3D. Cambia a 0 si prefieres que el sonido no tenga posición.
+            tempSource.spatialBlend = 1f;
 
             AudioSource originalSource = GetComponent<AudioSource>();
             if (originalSource != null)
@@ -93,12 +82,10 @@ public class Interactable : MonoBehaviour
             }
             else
             {
-                tempSource.volume = 1f; // valor por defecto si no hay fuente original
+                tempSource.volume = 1f;
             }
 
             tempSource.Play();
-
-            // Destruir después de que termine el sonido
             Destroy(tempAudio, clip.length);
 
             if (blockMovementDuringAudio && playerController != null)
@@ -111,14 +98,11 @@ public class Interactable : MonoBehaviour
         // Dar objeto si corresponde
         if (!string.IsNullOrEmpty(itemToGive))
         {
-            if ((giveOnAlternate && alternateUnlocked) || !giveOnAlternate)
+            if ((giveOnAlternate && canDoAlternate) || !giveOnAlternate)
                 playerInventory.AddItem(itemToGive);
         }
     }
 
-    /// <summary>
-    /// Versión adaptada para interacciones de "mantener pulsado" con sonido 3D en el punto de impacto.
-    /// </summary>
     private IEnumerator HoldInteractionAtPoint(Vector3 position)
     {
         AudioClip clip = alternateClip != null ? alternateClip : defaultClip;
@@ -131,26 +115,44 @@ public class Interactable : MonoBehaviour
         tempSource.clip = clip;
         tempSource.spatialBlend = 1f;
 
+        bool isPlaying = false;
+
         while (true)
         {
             if (Mouse.current.leftButton.isPressed)
             {
+                // Si no está sonando y ya se había pausado, reanudar desde donde se quedó
                 if (!tempSource.isPlaying)
+                {
+                    tempSource.time = currentTime;
                     tempSource.Play();
+                    isPlaying = true;
+                }
             }
             else
             {
                 if (tempSource.isPlaying)
+                {
+                    // Pausar y guardar el tiempo actual
+                    currentTime = tempSource.time;
                     tempSource.Pause();
+                    isPlaying = false;
+                }
             }
 
-            if (!tempSource.isPlaying && tempSource.time >= tempSource.clip.length)
+            // Si el audio termina, destruir el objeto y reiniciar la escena
+            if (!tempSource.isPlaying && tempSource.time >= tempSource.clip.length && isPlaying)
+            {
                 break;
+            }
 
             yield return null;
         }
 
         Destroy(tempAudio);
+
+        // Reiniciar la escena una vez que termine el audio
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void EndBlock()

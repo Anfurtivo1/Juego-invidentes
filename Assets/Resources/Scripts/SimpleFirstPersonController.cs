@@ -143,4 +143,10 @@ public class SimpleFirstPersonController : MonoBehaviour
         moveSpeed = originalMoveSpeed;
         mouseSensitivity = originalMouseSensitivity;
     }
+
+    public void NormalPlayer()
+    {
+        moveSpeed = 3f;
+        mouseSensitivity = 0.3f;
+    }
 }
