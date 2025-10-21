@@ -6,11 +6,11 @@ using System.Collections;
 public class Interactable : MonoBehaviour
 {
     [Header("ID del objeto para alternativo")]
-    public string interactableID; // ej: "Cajon1"
+    public string interactableID; //ej: "Cajon1"
 
     [Header("Sonidos")]
     public AudioClip defaultClip;
-    public AudioClip alternateClip; // por ejemplo rebuscar
+    public AudioClip alternateClip; //por ejemplo rebuscar
 
     [Header("Bloquear movimiento mientras suena")]
     public bool blockMovementDuringAudio = false;
@@ -21,7 +21,7 @@ public class Interactable : MonoBehaviour
 
     [Header("Requiere mantener click (ej. generador reparando)")]
     public bool holdToPlay = false;
-    public string requiredItemForHold; // opcional: objeto que debe tener el jugador para activar alternativo
+    public string requiredItemForHold; //objeto que debe tener el jugador para activar alternativo
 
     private AudioSource audioSource;
     private Inventory playerInventory;
@@ -81,6 +81,21 @@ public class Interactable : MonoBehaviour
             AudioSource tempSource = tempAudio.AddComponent<AudioSource>();
             tempSource.clip = clip;
             tempSource.spatialBlend = 1f; // 1 = 3D. Cambia a 0 si prefieres que el sonido no tenga posición.
+
+            AudioSource originalSource = GetComponent<AudioSource>();
+            if (originalSource != null)
+            {
+                tempSource.volume = originalSource.volume;
+                tempSource.pitch = originalSource.pitch;
+                tempSource.minDistance = originalSource.minDistance;
+                tempSource.maxDistance = originalSource.maxDistance;
+                tempSource.rolloffMode = originalSource.rolloffMode;
+            }
+            else
+            {
+                tempSource.volume = 1f; // valor por defecto si no hay fuente original
+            }
+
             tempSource.Play();
 
             // Destruir después de que termine el sonido
