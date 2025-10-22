@@ -271,6 +271,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &39157412
 AudioSource:
   m_ObjectHideFlags: 0
@@ -380,6 +381,7 @@ GameObject:
   - component: {fileID: 50852460}
   - component: {fileID: 50852459}
   - component: {fileID: 50852458}
+  - component: {fileID: 50852461}
   m_Layer: 0
   m_Name: Suelo (5)
   m_TagString: Cocina
@@ -477,6 +479,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50852456}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &50852461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50852456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: c55ed7f1af160bc499af235ee6f5c500, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &82985348
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,11 +537,11 @@ Transform:
   m_GameObject: {fileID: 82985348}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -46.53327, y: -1.27898, z: 18.002449}
+  m_LocalPosition: {x: -5.33, y: 1.115, z: 2.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1077087315}
+  m_Father: {fileID: 1477496977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &82985350
 MonoBehaviour:
@@ -522,8 +556,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2369721429071960469, guid: 93deef561c0a85149b4b6e40af828f57, type: 3}
-  minBounds: {x: -10.07, y: 0.26535, z: 9.25}
-  maxBounds: {x: 4.65, y: 0.26535, z: -2.06}
+  minBounds: {x: 20.668, y: 2.54, z: 21.29}
+  maxBounds: {x: 35.63, y: 2.54, z: 2.07}
 --- !u!1 &96428700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,6 +1161,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &150078545
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1484,6 +1519,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &283426894
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2291,6 +2327,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 1
   requiredItemForHold: Tornillo
+  requiredItemForAlternate: 
 --- !u!1 &355398677
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,6 +2903,7 @@ MonoBehaviour:
   giveOnAlternate: 1
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &429848007
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2975,6 +3013,7 @@ GameObject:
   - component: {fileID: 457872586}
   - component: {fileID: 457872585}
   - component: {fileID: 457872584}
+  - component: {fileID: 457872587}
   m_Layer: 0
   m_Name: Suelo (6)
   m_TagString: Dormitorio
@@ -3072,6 +3111,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457872582}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &457872587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457872582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 32562610142a1624fb5222b9f9cc91d1, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &483963182
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,6 +3187,114 @@ Transform:
   - {fileID: 1730897015}
   - {fileID: 150078539}
   m_Father: {fileID: 1077087315}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &515428578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 515428582}
+  - component: {fileID: 515428581}
+  - component: {fileID: 515428580}
+  - component: {fileID: 515428579}
+  m_Layer: 0
+  m_Name: Maximo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!65 &515428579
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515428578}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &515428580
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515428578}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &515428581
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515428578}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &515428582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515428578}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 35.63, y: 2.54, z: 2.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &535188845
 GameObject:
@@ -3247,6 +3426,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &535188851
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4074,6 +4254,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &802077979
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4742,6 +4923,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &881160303
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4947,6 +5129,114 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907616317}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &913809761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 913809765}
+  - component: {fileID: 913809764}
+  - component: {fileID: 913809763}
+  - component: {fileID: 913809762}
+  m_Layer: 0
+  m_Name: Minimo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!65 &913809762
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913809761}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &913809763
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913809761}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &913809764
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913809761}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &913809765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913809761}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.668, y: 2.54, z: 21.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &923964158
 GameObject:
   m_ObjectHideFlags: 0
@@ -5099,6 +5389,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &923964165
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5840,7 +6131,6 @@ Transform:
   m_Children:
   - {fileID: 2071056891}
   - {fileID: 483963183}
-  - {fileID: 82985349}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1141601744
@@ -6308,6 +6598,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!1 &1164480207
 GameObject:
   m_ObjectHideFlags: 0
@@ -6499,6 +6790,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &1177096217
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6726,6 +7018,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &1178254071
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7002,6 +7295,7 @@ GameObject:
   - component: {fileID: 1257377539}
   - component: {fileID: 1257377538}
   - component: {fileID: 1257377537}
+  - component: {fileID: 1257377540}
   m_Layer: 0
   m_Name: Suelo
   m_TagString: Garaje
@@ -7099,6 +7393,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257377535}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1257377540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257377535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: cfc9def9faa6a224eaa8dfe8290ca7d5, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1295137242
 GameObject:
   m_ObjectHideFlags: 0
@@ -7359,6 +7685,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &1319324336
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7825,6 +8152,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &1404264842
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8290,6 +8618,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &1463630060
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8399,6 +8728,7 @@ GameObject:
   - component: {fileID: 1477449814}
   - component: {fileID: 1477449813}
   - component: {fileID: 1477449812}
+  - component: {fileID: 1477449815}
   m_Layer: 0
   m_Name: Suelo (1)
   m_TagString: Salon
@@ -8496,6 +8826,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477449810}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1477449815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477449810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 41a8af304376b60468a8bf5d81b5afed, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1477496976
 GameObject:
   m_ObjectHideFlags: 0
@@ -8531,6 +8893,7 @@ Transform:
   - {fileID: 2075788802}
   - {fileID: 1016461613}
   - {fileID: 1729725243}
+  - {fileID: 82985349}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1490957882
@@ -8723,6 +9086,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &1509377439
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9247,6 +9611,7 @@ GameObject:
   - component: {fileID: 1637776838}
   - component: {fileID: 1637776837}
   - component: {fileID: 1637776836}
+  - component: {fileID: 1637776839}
   m_Layer: 0
   m_Name: Suelo (4)
   m_TagString: Bano
@@ -9344,6 +9709,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637776834}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1637776839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637776834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 5c835f03bc21bfe449c9f0609f53ffb0, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &1699145969
 GameObject:
   m_ObjectHideFlags: 0
@@ -9555,7 +9952,7 @@ Transform:
   m_GameObject: {fileID: 1729725239}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0049346644, y: -0.99995947, z: 0.0072284183, w: 0.0021139812}
-  m_LocalPosition: {x: -4.99, y: -0.21, z: 2.16}
+  m_LocalPosition: {x: -4.99, y: -0.22, z: 2.16}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9713,6 +10110,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &1730897021
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9940,6 +10338,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &1740197677
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11433,6 +11832,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
+  requiredItemForAlternate: 
 --- !u!82 &2013122379
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12087,3 +12487,5 @@ SceneRoots:
   - {fileID: 1556755227}
   - {fileID: 1077087315}
   - {fileID: 1477496977}
+  - {fileID: 913809765}
+  - {fileID: 515428582}
