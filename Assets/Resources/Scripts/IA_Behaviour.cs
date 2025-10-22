@@ -23,6 +23,7 @@ public class IA_Behaviour : MonoBehaviour
 
     void Start()
     {
+        
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemy_Spawner = FindAnyObjectByType<EnemySpawner>();
@@ -123,9 +124,9 @@ public class IA_Behaviour : MonoBehaviour
             if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 10f, NavMesh.AllAreas))
                 return hit.position;
 
-            Debug.Log("Posible posicion: "+hit.position);
+            Debug.Log("Posible posicion: " + hit.position);
         }
-        Debug.Log("Posicion final al no encontrar otra: "+transform.position);
+        Debug.Log("Posicion final al no encontrar otra: " + transform.position);
         // Si no encuentra un punto válido, usa la posición actual
         return transform.position;
 

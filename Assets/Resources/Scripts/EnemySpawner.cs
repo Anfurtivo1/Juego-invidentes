@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
         audioSourceMatar.clip = sonidoMatar;
         audioSourceMatar.Play();
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(audioSourceMatar.clip.length);
 
         //Cargar escena
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnRoutine()
     {
         // Espera inicial antes del primer spawn PONER A 60
-        yield return new WaitForSeconds(60f);
+        yield return new WaitForSeconds(5f);
 
         while (true)
         {
@@ -97,7 +97,7 @@ public class EnemySpawner : MonoBehaviour
                         break;
                 }
             }
-                
+
 
             // Espera los segundos restantes antes del spawn
             yield return new WaitForSeconds(preSpawnDelay);
@@ -116,7 +116,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 controller.PlaySpawnLoopSound();
             }
-                
+
         }
     }
 

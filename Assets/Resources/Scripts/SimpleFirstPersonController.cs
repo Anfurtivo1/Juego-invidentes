@@ -37,6 +37,7 @@ public class SimpleFirstPersonController : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("AudioListener active: " + AudioListener.pause);
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
