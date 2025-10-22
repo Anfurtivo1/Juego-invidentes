@@ -1,17 +1,22 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
-using UnityEngine.SceneManagement;  // Necesario para reiniciar la escena
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class Interactable : MonoBehaviour
 {
     [Header("Identificador (opcional)")]
-    public string interactableID; // Por si lo necesitas para debug
+    public string interactableID;
+
+    [Header("Modo Toggle")]
+    [Tooltip("Si est√° activo, alternar√° entre dos sonidos (default/alternate) cada vez que se interact√∫e.")]
+    public bool isToggle = false;
+    private bool toggleState = false;
 
     [Header("Sonidos")]
     public AudioClip defaultClip;
-    public AudioClip alternateClip; // Por ejemplo, rebuscar con energÌa
+    public AudioClip alternateClip;
 
     [Header("Bloquear movimiento mientras suena")]
     public bool blockMovementDuringAudio = false;
@@ -22,16 +27,17 @@ public class Interactable : MonoBehaviour
 
     [Header("Requiere mantener click (ej. generador reparando)")]
     public bool holdToPlay = false;
-    public string requiredItemForHold; // Objeto que debe tener el jugador para activar un "hold"
+    public string requiredItemForHold;
 
-    [Header("Requiere Ìtem para alternativo")]
-    public string requiredItemForAlternate; // Ej: "reparar1"
+    [Header("Requiere √≠tem para alternativo")]
+    public string requiredItemForAlternate;
 
     private AudioSource audioSource;
     private Inventory playerInventory;
     private SimpleFirstPersonController playerController;
 
-    private float currentTime = 0f; // Guarda el tiempo del audio cuando se pausa
+    private float currentTime = 0f;
+    private bool isPlayingSound = false;
 
     void Start()
     {
@@ -42,8 +48,18 @@ public class Interactable : MonoBehaviour
 
     public void Interact(Inventory inventory, SimpleFirstPersonController controller, Vector3 hitPoint)
     {
+        if (isPlayingSound)
+            return;
+
         playerInventory = inventory;
         playerController = controller;
+
+        // üü¢ Si est√° en modo "toggle", usamos el sistema especial
+        if (isToggle)
+        {
+            PlayToggleSoundAtPoint(hitPoint);
+            return;
+        }
 
         if (holdToPlay && inventory.HasItem(requiredItemForHold))
         {
@@ -52,6 +68,37 @@ public class Interactable : MonoBehaviour
         }
 
         PlayAudioInteractionAtPoint(hitPoint);
+    }
+
+    // üîÅ NUEVO: modo toggle entre dos sonidos
+    private void PlayToggleSoundAtPoint(Vector3 position)
+    {
+        AudioClip clip = toggleState ? alternateClip : defaultClip;
+
+        if (clip == null)
+            return;
+
+        isPlayingSound = true;
+
+        GameObject tempAudio = new GameObject("TempToggleAudio");
+        tempAudio.transform.position = position;
+
+        AudioSource tempSource = tempAudio.AddComponent<AudioSource>();
+        tempSource.clip = clip;
+        tempSource.spatialBlend = 1f;
+
+        tempSource.volume = audioSource.volume;
+        tempSource.minDistance = audioSource.minDistance;
+        tempSource.maxDistance = audioSource.maxDistance;
+        tempSource.rolloffMode = audioSource.rolloffMode;
+
+        tempSource.Play();
+        Destroy(tempAudio, clip.length);
+
+        // Cambiamos el estado toggle
+        toggleState = !toggleState;
+
+        StartCoroutine(ResetAfterSound(clip.length));
     }
 
     private void PlayAudioInteractionAtPoint(Vector3 position)
@@ -64,6 +111,8 @@ public class Interactable : MonoBehaviour
 
         if (clip != null)
         {
+            isPlayingSound = true;
+
             GameObject tempAudio = new GameObject("TempAudio");
             tempAudio.transform.position = position;
 
@@ -88,6 +137,8 @@ public class Interactable : MonoBehaviour
             tempSource.Play();
             Destroy(tempAudio, clip.length);
 
+            StartCoroutine(ResetAfterSound(clip.length));
+
             if (blockMovementDuringAudio && playerController != null)
             {
                 playerController.FreezePlayer();
@@ -95,7 +146,6 @@ public class Interactable : MonoBehaviour
             }
         }
 
-        // Dar objeto si corresponde
         if (!string.IsNullOrEmpty(itemToGive))
         {
             if ((giveOnAlternate && canDoAlternate) || !giveOnAlternate)
@@ -103,10 +153,18 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    private IEnumerator ResetAfterSound(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isPlayingSound = false;
+    }
+
     private IEnumerator HoldInteractionAtPoint(Vector3 position)
     {
         AudioClip clip = alternateClip != null ? alternateClip : defaultClip;
         if (clip == null) yield break;
+
+        isPlayingSound = true;
 
         GameObject tempAudio = new GameObject("TempHoldAudio");
         tempAudio.transform.position = position;
@@ -121,7 +179,6 @@ public class Interactable : MonoBehaviour
         {
             if (Mouse.current.leftButton.isPressed)
             {
-                // Si no est· sonando y ya se habÌa pausado, reanudar desde donde se quedÛ
                 if (!tempSource.isPlaying)
                 {
                     tempSource.time = currentTime;
@@ -133,25 +190,21 @@ public class Interactable : MonoBehaviour
             {
                 if (tempSource.isPlaying)
                 {
-                    // Pausar y guardar el tiempo actual
                     currentTime = tempSource.time;
                     tempSource.Pause();
                     isPlaying = false;
                 }
             }
 
-            // Si el audio termina, destruir el objeto y reiniciar la escena
-            if (!tempSource.isPlaying && tempSource.time >= tempSource.clip.length && isPlaying)
-            {
+            if (tempSource.time >= tempSource.clip.length - 0.05f)
                 break;
-            }
 
             yield return null;
         }
 
         Destroy(tempAudio);
+        isPlayingSound = false;
 
-        // Reiniciar la escena una vez que termine el audio
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

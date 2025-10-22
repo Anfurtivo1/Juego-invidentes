@@ -31,6 +31,10 @@ public class SimpleFirstPersonController : MonoBehaviour
 
     private FootstepAudio footstepAudio;
 
+    // 👇 Nueva variable para comprobar desplazamiento real
+    private Vector3 lastPosition;
+    private float minMoveDistance = 0.01f; // margen de movimiento mínimo real
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -43,6 +47,8 @@ public class SimpleFirstPersonController : MonoBehaviour
         footstepAudio = GetComponent<FootstepAudio>();
         if (footstepAudio == null)
             Debug.LogWarning("No FootstepAudio attached to Player. Añádelo para escuchar pasos.");
+
+        lastPosition = transform.position;
     }
 
     void Update()
@@ -79,7 +85,11 @@ public class SimpleFirstPersonController : MonoBehaviour
         move.Normalize();
         controller.Move(move * moveSpeed * Time.deltaTime);
 
-        bool currentlyMoving = move.magnitude > 0 && controller.isGrounded && !isFrozen;
+        // 👇 Comprobar si realmente se movió (posición actual vs anterior)
+        float distanceMoved = Vector3.Distance(transform.position, lastPosition);
+        bool reallyMoved = distanceMoved > minMoveDistance;
+
+        bool currentlyMoving = move.magnitude > 0 && controller.isGrounded && !isFrozen && reallyMoved;
 
         if (currentlyMoving && !isMoving)
         {
@@ -91,6 +101,8 @@ public class SimpleFirstPersonController : MonoBehaviour
         {
             isMoving = false;
         }
+
+        lastPosition = transform.position; // actualizar para el siguiente frame
     }
 
     void ApplyGravity()
@@ -131,7 +143,7 @@ public class SimpleFirstPersonController : MonoBehaviour
         footstepCoroutine = null;
     }
 
-    // Métodos públicos para congelar y descongelar al jugador
+    // Métodos públicos
     public void FreezePlayer()
     {
         moveSpeed = 0f;

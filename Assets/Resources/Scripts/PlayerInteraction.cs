@@ -1,12 +1,15 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 
 
 
+using UnityEngine;
+using UnityEngine.InputSystem;
+
 public class PlayerInteraction : MonoBehaviour
 {
-    [Header("Interacci�n")]
+    [Header("Interacción")]
     public float interactRange = 3f;
     public LayerMask interactableMask;
 
@@ -19,9 +22,9 @@ public class PlayerInteraction : MonoBehaviour
         controller = GetComponent<SimpleFirstPersonController>();
 
         if (controller == null)
-            Debug.LogWarning("No se encontr� SimpleFirstPersonController en el Player.");
+            Debug.LogWarning("No se encontró SimpleFirstPersonController en el Player.");
         if (inventory == null)
-            Debug.LogWarning("No se encontr� Inventory en el Player.");
+            Debug.LogWarning("No se encontró Inventory en el Player.");
     }
 
     void Update()
@@ -31,16 +34,26 @@ public class PlayerInteraction : MonoBehaviour
             if (controller == null || controller.cameraTransform == null)
                 return;
 
-            // Raycast desde la c�mara
+            // Raycast desde la cámara
             Ray ray = new Ray(controller.cameraTransform.position, controller.cameraTransform.forward);
             Debug.DrawRay(controller.cameraTransform.position, controller.cameraTransform.forward * interactRange, Color.red);
 
             if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactableMask))
             {
+                // --- 1️⃣ Interactuable normal ---
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 if (interactable != null)
                 {
                     interactable.Interact(inventory, controller, hit.point);
+                    return;
+                }
+
+                // --- 2️⃣ ToggleInteractable (nuevo) ---
+                ToggleInteractable toggle = hit.collider.GetComponent<ToggleInteractable>();
+                if (toggle != null)
+                {
+                    toggle.Interact();
+                    return;
                 }
             }
         }
