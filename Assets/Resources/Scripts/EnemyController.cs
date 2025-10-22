@@ -14,10 +14,11 @@ public class EnemyController : MonoBehaviour
     {
         if (audioSource3D && spawnLoopSound)
         {
-            audioSource3D.clip = spawnLoopSound;
+            audioSource3D.clip = spawnLoopSound;//
             audioSource3D.loop = true;
             audioSource3D.spatialBlend = 1f; // asegura que sea 3D
             audioSource3D.Play();
+
         }
     }
 

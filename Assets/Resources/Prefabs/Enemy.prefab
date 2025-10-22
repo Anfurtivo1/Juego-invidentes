@@ -152,6 +152,8 @@ MonoBehaviour:
   maxBounds: {x: 34.79, y: 1.55, z: -10.54}
   waiting: 0
   movingToRandom: 0
+  audioSource: {fileID: 7360484073211897419}
+  sonidoMatar: {fileID: 8300000, guid: f4b67f774c213284986cb37efd4273a8, type: 3}
 --- !u!114 &3401465144388636753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource3D: {fileID: 7360484073211897419}
-  spawnLoopSound: {fileID: 8300000, guid: 0d3b5e98ec491f642b8f64e08232cc03, type: 3}
+  spawnLoopSound: {fileID: 8300000, guid: f4b67f774c213284986cb37efd4273a8, type: 3}
 --- !u!82 &7360484073211897419
 AudioSource:
   m_ObjectHideFlags: 0

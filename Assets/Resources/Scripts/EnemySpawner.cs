@@ -1,9 +1,11 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
+
     public GameObject enemy;
 
     // Límites del área
@@ -12,33 +14,92 @@ public class EnemySpawner : MonoBehaviour
 
     // Sonidos
     public AudioSource audioSource;
-    public AudioClip preSpawnSound; // sonido 2 segundos antes
+    public AudioSource audioSourceMatar;
+    public AudioClip preSpawnSound1; // sonido 2 segundos antes
+    public AudioClip preSpawnSound2; // sonido 2 segundos antes
+    public AudioClip preSpawnSound3; // sonido 2 segundos antes
+    public AudioClip preSpawnSound4; // sonido 2 segundos antes
+    public AudioClip preSpawnSound5; // sonido 2 segundos antes
+    public AudioClip preSpawnSound6; // sonido 2 segundos antes
+    public AudioClip preSpawnSound7; // sonido 2 segundos antes
+    public AudioClip preSpawnSound8; // sonido 2 segundos antes
+
+    public AudioClip sonidoMatar; // sonido 2 segundos antes
     //public AudioClip spawnSound;    // sonido cuando spawnea
 
     public float spawnInterval = 20f; // cada cuánto tiempo se genera un enemigo
     public float preSpawnDelay = 2f;  // cuántos segundos antes suena el aviso
+
+    public int contadorVoces = 0;
 
     void Start()
     {
         StartCoroutine(SpawnRoutine());
     }
 
+    private void Update()
+    {
+
+    }
+
+    public IEnumerator MatarJugador()
+    {
+        Debug.Log("Voy a matarte");
+        audioSourceMatar.clip = sonidoMatar;
+        audioSourceMatar.Play();
+
+        yield return new WaitForSeconds(3f);
+
+        //Cargar escena
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+    }
+
     IEnumerator SpawnRoutine()
     {
-        // Espera inicial antes del primer spawn (5 segundos como en tu código original)
-        yield return new WaitForSeconds(5f);
+        // Espera inicial antes del primer spawn PONER A 60
+        yield return new WaitForSeconds(60f);
 
         while (true)
         {
             // Sonido previo (2 segundos antes del spawn)
             yield return new WaitForSeconds(spawnInterval - preSpawnDelay);
-            if (audioSource && preSpawnSound)
+            if (audioSource && preSpawnSound1)
             {
-                audioSource.PlayOneShot(preSpawnSound);
+                contadorVoces = contadorVoces + 1;
+                switch (contadorVoces)
+                {
+                    case 1:
+                        audioSource.PlayOneShot(preSpawnSound1);
+                        break;
+                    case 2:
+                        audioSource.PlayOneShot(preSpawnSound2);
+                        break;
+                    case 3:
+                        audioSource.PlayOneShot(preSpawnSound3);
+                        break;
+                    case 4:
+                        audioSource.PlayOneShot(preSpawnSound4);
+                        break;
+                    case 5:
+                        audioSource.PlayOneShot(preSpawnSound5);
+                        break;
+                    case 6:
+                        audioSource.PlayOneShot(preSpawnSound6);
+                        break;
+                    case 7:
+                        audioSource.PlayOneShot(preSpawnSound7);
+                        break;
+                    case 8:
+                        audioSource.PlayOneShot(preSpawnSound8);
+                        break;
+                    default:
+                        break;
+                }
             }
                 
 
-            // Espera los 2 segundos restantes antes del spawn
+            // Espera los segundos restantes antes del spawn
             yield return new WaitForSeconds(preSpawnDelay);
 
             // Spawnea enemigo y reproduce el sonido del spawn

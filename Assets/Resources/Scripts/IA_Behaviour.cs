@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class IA_Behaviour : MonoBehaviour
 {
@@ -15,10 +16,16 @@ public class IA_Behaviour : MonoBehaviour
     public bool waiting = false;
     public bool movingToRandom = false;
 
+    public AudioSource audioSource;
+    public AudioClip sonidoMatar; // sonido
+
+    EnemySpawner enemy_Spawner;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        enemy_Spawner = FindAnyObjectByType<EnemySpawner>();
     }
 
     void Update()
@@ -54,6 +61,12 @@ public class IA_Behaviour : MonoBehaviour
 
     IEnumerator WaitAndCheckPlayer()
     {
+
+        if (enemy_Spawner.contadorVoces == 8)
+        {
+            StartCoroutine(enemy_Spawner.MatarJugador());
+        }
+
         agent.isStopped = true;
         waiting = true;
 
@@ -79,7 +92,11 @@ public class IA_Behaviour : MonoBehaviour
         else
         {
             // El jugador se movió, seguir persiguiendo
-            Debug.Log("Pos te persigo");
+            Debug.Log("Pos te persigo y te voy a matar");
+
+            StartCoroutine(enemy_Spawner.MatarJugador());
+
+
             agent.isStopped = false;
         }
     }
