@@ -918,6 +918,7 @@ GameObject:
   - component: {fileID: 96428711}
   - component: {fileID: 96428710}
   - component: {fileID: 96428712}
+  - component: {fileID: 96428713}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1014,7 +1015,7 @@ Transform:
   m_GameObject: {fileID: 96428700}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7189009, z: -0, w: 0.69511265}
-  m_LocalPosition: {x: 35.02, y: 3.31, z: 10.3}
+  m_LocalPosition: {x: 35.02, y: 6.37, z: 10.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1276,13 +1277,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96428700}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cdea68af45bad14394e6275d6340039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 96428706}
   introClip: {fileID: 8300000, guid: 13ebe060e18c0f94dbca7c51d4fbce8a, type: 3}
+--- !u!114 &96428713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96428700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3efb1846f8f39e4298e7039d2e966d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objeto: {fileID: 1000584780}
 --- !u!1 &150078538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,7 +1672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -2406,7 +2420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -2635,7 +2649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -3093,7 +3107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -3322,7 +3336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -3672,7 +3686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -4654,7 +4668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -4883,7 +4897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -5112,7 +5126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -6966,7 +6980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -8228,7 +8242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -8457,7 +8471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -10730,7 +10744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -11210,7 +11224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -11799,7 +11813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -12028,7 +12042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -13020,7 +13034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -13783,7 +13797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -14601,7 +14615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -14830,7 +14844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -15059,7 +15073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -15288,7 +15302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -15517,7 +15531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -16093,7 +16107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
@@ -16322,7 +16336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableID: 
   isToggle: 0
-  defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
+  defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
   blockMovementDuringAudio: 0
   itemToGive: 
