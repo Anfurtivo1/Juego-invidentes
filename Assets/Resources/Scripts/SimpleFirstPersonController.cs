@@ -31,9 +31,8 @@ public class SimpleFirstPersonController : MonoBehaviour
 
     private FootstepAudio footstepAudio;
 
-    // 👇 Nueva variable para comprobar desplazamiento real
     private Vector3 lastPosition;
-    private float minMoveDistance = 0.01f; // margen de movimiento mínimo real
+    private float minMoveDistance = 0.001f; // margen de movimiento mínimo real
 
     void Start()
     {
@@ -86,11 +85,11 @@ public class SimpleFirstPersonController : MonoBehaviour
         move.Normalize();
         controller.Move(move * moveSpeed * Time.deltaTime);
 
-        // 👇 Comprobar si realmente se movió (posición actual vs anterior)
+        //Comprobar si realmente se movió (posición actual vs anterior)
         float distanceMoved = Vector3.Distance(transform.position, lastPosition);
         bool reallyMoved = distanceMoved > minMoveDistance;
 
-        bool currentlyMoving = move.magnitude > 0 && controller.isGrounded && !isFrozen && reallyMoved;
+        bool currentlyMoving = move.magnitude > 0 && controller.isGrounded && !isFrozen;
 
         if (currentlyMoving && !isMoving)
         {
