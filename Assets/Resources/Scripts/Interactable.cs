@@ -25,6 +25,10 @@ public class Interactable : MonoBehaviour
     public string itemToGive;
     public bool giveOnAlternate = false;
 
+    [Header("Quitar objeto al interactuar")]
+    public string itemToRemove;
+    public bool removeOnAlternate = false;
+
     [Header("Requiere mantener click (ej. generador reparando)")]
     public bool holdToPlay = false;
     public string requiredItemForHold;
@@ -146,10 +150,18 @@ public class Interactable : MonoBehaviour
             }
         }
 
+        // 🟩 Dar objeto
         if (!string.IsNullOrEmpty(itemToGive))
         {
             if ((giveOnAlternate && canDoAlternate) || !giveOnAlternate)
                 playerInventory.AddItem(itemToGive);
+        }
+
+        // 🟥 Quitar objeto
+        if (!string.IsNullOrEmpty(itemToRemove))
+        {
+            if ((removeOnAlternate && canDoAlternate) || (!removeOnAlternate && !canDoAlternate))
+                playerInventory.RemoveItem(itemToRemove);
         }
     }
 

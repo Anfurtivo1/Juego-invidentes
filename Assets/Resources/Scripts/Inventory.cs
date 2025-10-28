@@ -14,4 +14,10 @@ public class Inventory : MonoBehaviour
     {
         return items.Contains(itemName);
     }
+    public void RemoveItem(string itemName)
+    {
+        if (items.Contains(itemName))
+            items.Remove(itemName);
+    }
+
 }

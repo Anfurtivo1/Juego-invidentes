@@ -399,6 +399,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -1448,6 +1450,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -1677,6 +1681,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -1928,6 +1934,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -2425,6 +2433,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -2654,6 +2664,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -2980,6 +2992,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 1
   itemToGive: Reparar1
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 1
   requiredItemForHold: Tornillo
   requiredItemForAlternate: Tornillo
@@ -3112,6 +3126,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -3341,6 +3357,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -3691,6 +3709,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -3920,6 +3940,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 1
   itemToGive: Tornillo
   giveOnAlternate: 1
+  itemToRemove: Reparar1
+  removeOnAlternate: 1
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: Reparar1
@@ -4441,6 +4463,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -4670,6 +4694,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -4899,6 +4925,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -5295,6 +5323,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -5514,6 +5544,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 1
   itemToGive: Tornillo
   giveOnAlternate: 1
+  itemToRemove: Reparar1
+  removeOnAlternate: 1
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: Reparar1
@@ -5881,6 +5913,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -6132,6 +6166,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -6749,6 +6785,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -6978,6 +7016,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -7522,6 +7562,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -8248,6 +8290,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -8441,6 +8485,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -8670,6 +8716,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -8940,6 +8988,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 1
   itemToGive: Tornillo
   giveOnAlternate: 1
+  itemToRemove: Reparar1
+  removeOnAlternate: 1
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: Reparar1
@@ -9492,6 +9542,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -9795,6 +9847,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -10046,6 +10100,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -10275,6 +10331,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -10504,6 +10562,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -10733,6 +10793,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -10962,6 +11024,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -11213,6 +11277,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -11679,6 +11745,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -12483,6 +12551,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -12734,6 +12804,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -12963,6 +13035,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -13192,6 +13266,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -13421,6 +13497,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -13650,6 +13728,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -14062,6 +14142,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -14291,6 +14373,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -14542,6 +14626,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
@@ -15227,6 +15313,8 @@ MonoBehaviour:
   blockMovementDuringAudio: 0
   itemToGive: 
   giveOnAlternate: 0
+  itemToRemove: 
+  removeOnAlternate: 0
   holdToPlay: 0
   requiredItemForHold: 
   requiredItemForAlternate: 
