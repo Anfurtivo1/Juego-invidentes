@@ -150,14 +150,14 @@ public class Interactable : MonoBehaviour
             }
         }
 
-        // 🟩 Dar objeto
+        //Dar objeto
         if (!string.IsNullOrEmpty(itemToGive))
         {
             if ((giveOnAlternate && canDoAlternate) || !giveOnAlternate)
                 playerInventory.AddItem(itemToGive);
         }
 
-        // 🟥 Quitar objeto
+        //Quitar objeto
         if (!string.IsNullOrEmpty(itemToRemove))
         {
             if ((removeOnAlternate && canDoAlternate) || (!removeOnAlternate && !canDoAlternate))
