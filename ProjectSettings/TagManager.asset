@@ -9,6 +9,7 @@ TagManager:
   - Bano
   - Cocina
   - Dormitorio
+  - Spawner
   layers:
   - Default
   - TransparentFX

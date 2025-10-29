@@ -20,7 +20,6 @@ public class IA_Behaviour : MonoBehaviour
     public AudioClip sonidoMatar; // sonido
 
     EnemySpawner enemy_Spawner;
-    float timer;
 
     void Start()
     {
@@ -32,8 +31,6 @@ public class IA_Behaviour : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("El waiting es: " + waiting);
-        Debug.Log(timer);
         if (!waiting)
         {
             if (!movingToRandom)
@@ -41,11 +38,7 @@ public class IA_Behaviour : MonoBehaviour
                 //Debug.Log("Distancia: " + Vector3.Distance(transform.position, player.position));
 
                 if (Vector3.Distance(transform.position, player.position) < 3f)
-                {
-                    waiting = true;
                     StartCoroutine(WaitAndCheckPlayer());
-                }
-
                 else
                     agent.SetDestination(player.position);
             }
@@ -65,29 +58,77 @@ public class IA_Behaviour : MonoBehaviour
                 }
             }
         }
-
-        else
-        {
-            timer += Time.deltaTime;
-        }
     }
+
+    //IEnumerator WaitAndCheckPlayer()
+    //{
+    //    if (enemy_Spawner.contadorVoces == 8)
+    //        StartCoroutine(player.GetComponent<SimpleFirstPersonController>().MatarJugador());
+
+    //    agent.isStopped = true;
+    //    waiting = true;
+
+    //    // Guardamos la posición inicial del jugador
+    //    Vector3 initialPlayerPos = player.position;
+    //    player.GetComponent<SimpleFirstPersonController>().isBehindMe = true;
+    //    // Espera 5 segundos
+    //    yield return new WaitForSeconds(5f);
+    //    player.GetComponent<SimpleFirstPersonController>().isBehindMe = false;
+
+    //    waiting = false;
+
+    //    Debug.Log("Pos me voy");// Ir a una posición aleatoria dentro del área
+    //    randomPos = GetRandomNavMeshPosition();
+    //    agent.isStopped = false;
+    //    agent.SetDestination(randomPos);
+    //    movingToRandom = true;
+    //    StartCoroutine(nameof(DisappearAndRespawn));
+
+    //}
 
     IEnumerator WaitAndCheckPlayer()
     {
+
         if (enemy_Spawner.contadorVoces == 8)
-            StartCoroutine(enemy_Spawner.MatarJugador());
+        {
+            StartCoroutine(player.GetComponent<SimpleFirstPersonController>().MatarJugador());
+        }
 
         agent.isStopped = true;
+        waiting = true;
 
-        CanIKillThePlayer();
+        // Guardamos la posición inicial del jugador
+        Vector3 initialPlayerPos = player.position;
 
-        Debug.Log("Pos me voy");// Ir a una posición aleatoria dentro del área
-        randomPos = GetRandomNavMeshPosition();
-        agent.isStopped = false;
-        agent.SetDestination(randomPos);
-        movingToRandom = true;
-        timer = 0;
-        yield return new WaitForSeconds(.1f);
+        player.GetComponent<SimpleFirstPersonController>().isBehindMe = true;
+
+        // Espera 5 segundos
+        yield return new WaitForSeconds(5f);
+
+        // Comprueba si el jugador se ha movido
+        float distanceMoved = Vector3.Distance(initialPlayerPos, player.position);
+
+        waiting = false;
+
+        if (distanceMoved < 0.1f) // El jugador no se movió
+        {
+
+            Debug.Log("Pos me voy");// Ir a una posición aleatoria dentro del área
+            randomPos = GetRandomNavMeshPosition();
+            agent.isStopped = false;
+            agent.SetDestination(randomPos);
+            movingToRandom = true;
+        }
+        else
+        {
+            // El jugador se movió, seguir persiguiendo
+            Debug.Log("Pos te persigo y te voy a matar");
+
+            //StartCoroutine(player.GetComponent<SimpleFirstPersonController>().MatarJugador());
+
+
+            agent.isStopped = false;
+        }
     }
 
     IEnumerator DisappearAndRespawn()
@@ -117,26 +158,7 @@ public class IA_Behaviour : MonoBehaviour
         Debug.Log("Posicion final al no encontrar otra: " + transform.position);
         // Si no encuentra un punto válido, usa la posición actual
         return transform.position;
-    }
 
-    public void CanIKillThePlayer()
-    {
-        Debug.Log("Entro en CanIKillThePlayer.");
-        Vector3 initialPlayerPos = player.position;
-        float distanceMoved = Vector3.Distance(initialPlayerPos, player.position);
-
-        while (timer < 5)
-        {
-            Debug.Log("Entro en el while.");
-            if (player.position != initialPlayerPos) // El jugador se movió
-            {
-                Debug.Log("Pos te mato.");
-                StartCoroutine(enemy_Spawner.MatarJugador());
-            }
-
-            else
-                break;
-        }
     }
 }
 

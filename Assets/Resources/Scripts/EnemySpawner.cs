@@ -24,7 +24,6 @@ public class EnemySpawner : MonoBehaviour
     public AudioClip preSpawnSound7; // sonido 2 segundos antes
     public AudioClip preSpawnSound8; // sonido 2 segundos antes
 
-    public AudioClip sonidoMatar; // sonido 2 segundos antes
     //public AudioClip spawnSound;    // sonido cuando spawnea
 
     public float spawnInterval = 20f; // cada cuánto tiempo se genera un enemigo
@@ -39,19 +38,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-
-    }
-
-    public IEnumerator MatarJugador()
-    {
-        Debug.Log("Voy a matarte");
-        audioSourceMatar.clip = sonidoMatar;
-        audioSourceMatar.Play();
-
-        yield return new WaitForSeconds(audioSourceMatar.clip.length);
-
-        //Cargar escena
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
 

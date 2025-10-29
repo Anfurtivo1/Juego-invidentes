@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class SimpleFirstPersonController : MonoBehaviour
@@ -28,9 +29,12 @@ public class SimpleFirstPersonController : MonoBehaviour
 
     private Coroutine footstepCoroutine;
     private bool isMoving;
+    public bool isBehindMe;
+    public AudioClip sonidoMatar;
 
     private FootstepAudio footstepAudio;
 
+    public Vector3 move;
     private Vector3 lastPosition;
     private float minMoveDistance = 0.001f; // margen de movimiento mínimo real
 
@@ -56,6 +60,15 @@ public class SimpleFirstPersonController : MonoBehaviour
         if (Keyboard.current == null || Mouse.current == null)
             return;
 
+        if (isBehindMe && move != Vector3.zero)
+        {
+            isBehindMe = false;
+            FreezePlayer();
+            StartCoroutine(nameof(MatarJugador));
+        }
+
+
+
         HandleLook();
         HandleMovement();
         ApplyGravity();
@@ -72,7 +85,7 @@ public class SimpleFirstPersonController : MonoBehaviour
 
     void HandleMovement()
     {
-        Vector3 move = Vector3.zero;
+        move = Vector3.zero;
 
         if (!isFrozen)
         {
@@ -160,5 +173,18 @@ public class SimpleFirstPersonController : MonoBehaviour
     {
         moveSpeed = 3f;
         mouseSensitivity = 0.3f;
+    }
+
+    public IEnumerator MatarJugador()
+    {
+        Debug.Log("Voy a matarte");
+        GetComponent<AudioSource>().clip = sonidoMatar;
+        GetComponent<AudioSource>().Play();
+
+        yield return new WaitForSeconds(sonidoMatar.length);
+
+        //Cargar escena
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 }
