@@ -702,8 +702,8 @@ MonoBehaviour:
   preSpawnSound6: {fileID: 8300000, guid: 0ebdfc23ad964a746b11b5487e7c5e2f, type: 3}
   preSpawnSound7: {fileID: 8300000, guid: d51c70a2a4932bb48ba090c66fff2841, type: 3}
   preSpawnSound8: {fileID: 8300000, guid: 96920434222dea54b96b37f1ebb3fa09, type: 3}
-  spawnInterval: 10
-  preSpawnDelay: 7
+  spawnInterval: 30
+  preSpawnDelay: 44
   contadorVoces: 0
 --- !u!82 &82985351
 AudioSource:
@@ -1061,7 +1061,6 @@ MonoBehaviour:
   mouseSensitivity: 0.3
   cameraTransform: {fileID: 330585546}
   footstepInterval: 10
-  isBehindMe: 0
   sonidoMatar: {fileID: 8300000, guid: 19613ccc2285b6b49bf1ce34440298d1, type: 3}
   move: {x: 0, y: 0, z: 0}
 --- !u!143 &96428707
