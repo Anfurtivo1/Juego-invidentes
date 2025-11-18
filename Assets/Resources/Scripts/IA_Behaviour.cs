@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class IA_Behaviour : MonoBehaviour
 {
     private NavMeshAgent agent;
-    private Transform player;
+    private GameObject player;
     private Vector3 randomPos;
 
     // Límites del área
@@ -25,22 +25,28 @@ public class IA_Behaviour : MonoBehaviour
     {
 
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
         enemy_Spawner = FindAnyObjectByType<EnemySpawner>();
     }
 
     void Update()
     {
+        if (agent.isStopped && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
+        {
+            player.GetComponent<SimpleFirstPersonController>().FreezePlayer();
+            player.GetComponent<SimpleFirstPersonController>().MatarJugador();
+        }
+
         if (!waiting)
         {
             if (!movingToRandom)
             {
                 //Debug.Log("Distancia: " + Vector3.Distance(transform.position, player.position));
 
-                if (Vector3.Distance(transform.position, player.position) < 3f)
+                if (Vector3.Distance(transform.position, player.transform.position) < 3f)
                     StartCoroutine(WaitAndCheckPlayer());
                 else
-                    agent.SetDestination(player.position);
+                    agent.SetDestination(player.transform.position);
             }
 
             else
@@ -91,14 +97,14 @@ public class IA_Behaviour : MonoBehaviour
 
         if (enemy_Spawner.contadorVoces == 8)
         {
-            StartCoroutine(player.GetComponent<SimpleFirstPersonController>().MatarJugador());
+            //StartCoroutine(player.GetComponent<SimpleFirstPersonController>().MatarJugador());
         }
 
         agent.isStopped = true;
         waiting = true;
 
         // Guardamos la posición inicial del jugador
-        Vector3 initialPlayerPos = player.position;
+        Vector3 initialPlayerPos = player.transform.position;
 
         player.GetComponent<SimpleFirstPersonController>().isBehindMe = true;
 
@@ -106,7 +112,7 @@ public class IA_Behaviour : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         // Comprueba si el jugador se ha movido
-        float distanceMoved = Vector3.Distance(initialPlayerPos, player.position);
+        float distanceMoved = Vector3.Distance(initialPlayerPos, player.transform.position);
 
         waiting = false;
 
@@ -118,6 +124,7 @@ public class IA_Behaviour : MonoBehaviour
             agent.isStopped = false;
             agent.SetDestination(randomPos);
             movingToRandom = true;
+            player.GetComponent<SimpleFirstPersonController>().isBehindMe = false;
         }
         else
         {
