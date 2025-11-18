@@ -29,7 +29,6 @@ public class SimpleFirstPersonController : MonoBehaviour
 
     private Coroutine footstepCoroutine;
     private bool isMoving;
-    public bool isBehindMe;
     public AudioClip sonidoMatar;
 
     private FootstepAudio footstepAudio;
@@ -59,15 +58,6 @@ public class SimpleFirstPersonController : MonoBehaviour
     {
         if (Keyboard.current == null || Mouse.current == null)
             return;
-
-        if (isBehindMe && move != Vector3.zero)
-        {
-            isBehindMe = false;
-            FreezePlayer();
-            StartCoroutine(nameof(MatarJugador));
-        }
-
-
 
         HandleLook();
         HandleMovement();

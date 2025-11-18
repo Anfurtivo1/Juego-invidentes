@@ -66,31 +66,6 @@ public class IA_Behaviour : MonoBehaviour
         }
     }
 
-    //IEnumerator WaitAndCheckPlayer()
-    //{
-    //    if (enemy_Spawner.contadorVoces == 8)
-    //        StartCoroutine(player.GetComponent<SimpleFirstPersonController>().MatarJugador());
-
-    //    agent.isStopped = true;
-    //    waiting = true;
-
-    //    // Guardamos la posición inicial del jugador
-    //    Vector3 initialPlayerPos = player.position;
-    //    player.GetComponent<SimpleFirstPersonController>().isBehindMe = true;
-    //    // Espera 5 segundos
-    //    yield return new WaitForSeconds(5f);
-    //    player.GetComponent<SimpleFirstPersonController>().isBehindMe = false;
-
-    //    waiting = false;
-
-    //    Debug.Log("Pos me voy");// Ir a una posición aleatoria dentro del área
-    //    randomPos = GetRandomNavMeshPosition();
-    //    agent.isStopped = false;
-    //    agent.SetDestination(randomPos);
-    //    movingToRandom = true;
-    //    StartCoroutine(nameof(DisappearAndRespawn));
-
-    //}
 
     IEnumerator WaitAndCheckPlayer()
     {
@@ -105,8 +80,6 @@ public class IA_Behaviour : MonoBehaviour
 
         // Guardamos la posición inicial del jugador
         Vector3 initialPlayerPos = player.transform.position;
-
-        player.GetComponent<SimpleFirstPersonController>().isBehindMe = true;
 
         // Espera 5 segundos
         yield return new WaitForSeconds(5f);
@@ -124,7 +97,6 @@ public class IA_Behaviour : MonoBehaviour
             agent.isStopped = false;
             agent.SetDestination(randomPos);
             movingToRandom = true;
-            player.GetComponent<SimpleFirstPersonController>().isBehindMe = false;
         }
         else
         {
