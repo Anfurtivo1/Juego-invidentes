@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: aa430b1217e29fc45a1d41140ed36bae
+  - enabled: 1
     path: Assets/Scenes/Mapa.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/TutorialGenerador.unity
+    guid: f721fd4c9ae7d1a4080fc783fc5519de
+  - enabled: 1
+    path: Assets/Scenes/GeneradorMinijuego.unity
+    guid: ef32ed7053d140d47a38ce193272fdbb
+  - enabled: 1
+    path: Assets/Scenes/Controles.unity
+    guid: 0b2206c785b21db47b0f7f5028377fda
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 69a83bb4f5fb9944ba110ae6f73ab145
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

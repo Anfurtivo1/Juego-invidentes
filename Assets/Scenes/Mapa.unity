@@ -393,6 +393,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -1016,7 +1020,7 @@ Transform:
   m_GameObject: {fileID: 96428700}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7189009, z: -0, w: 0.69511265}
-  m_LocalPosition: {x: 35.02, y: 6.37, z: 10.3}
+  m_LocalPosition: {x: 35.02, y: 2.95, z: 10.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1445,6 +1449,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -1676,6 +1684,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -1929,6 +1941,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -2428,6 +2444,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -2659,6 +2679,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -2987,6 +3011,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: Tornillo
+  loadSceneOnInteract: 1
+  sceneToLoad: TutorialGenerador
+  requireItemForSceneChange: 1
+  requiredItemForScene: Tornillo
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 8fb1d1100ded757499f4ea41ce974063, type: 3}
   alternateClip: {fileID: 8300000, guid: e9605940105341740bf14c6b5e7e994b, type: 3}
@@ -2995,7 +3023,7 @@ MonoBehaviour:
   giveOnAlternate: 0
   itemToRemove: 
   removeOnAlternate: 0
-  holdToPlay: 1
+  holdToPlay: 0
   requiredItemForHold: Tornillo
   requiredItemForAlternate: Tornillo
 --- !u!1 &355398677
@@ -3121,6 +3149,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -3352,6 +3384,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -3704,6 +3740,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -3935,6 +3975,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: Reparar1
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 7beddd28da9a09a499fb49dcaac0a5db, type: 3}
   alternateClip: {fileID: 8300000, guid: 633301d410c4029459a4a0405b67756a, type: 3}
@@ -4335,6 +4379,135 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &524809212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 524809214}
+  - component: {fileID: 524809213}
+  m_Layer: 0
+  m_Name: Window1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &524809213
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524809212}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 870f1ba45289eb241badd2e2b0c9db5d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.172
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 7
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &524809214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524809212}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 35.58, y: 2.8, z: 4.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &535188845
 GameObject:
   m_ObjectHideFlags: 0
@@ -4458,6 +4631,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 4329f56936956ee4bbbf8c030fb5a90e, type: 3}
   alternateClip: {fileID: 0}
@@ -4689,6 +4866,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -4920,6 +5101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -5318,6 +5503,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
   alternateClip: {fileID: 0}
@@ -5539,6 +5728,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: Reparar1
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 7beddd28da9a09a499fb49dcaac0a5db, type: 3}
   alternateClip: {fileID: 8300000, guid: 633301d410c4029459a4a0405b67756a, type: 3}
@@ -5908,6 +6101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 99adb89200e401944ac99bb07c3530ec, type: 3}
   alternateClip: {fileID: 0}
@@ -6161,6 +6358,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -6780,6 +6981,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -7011,6 +7216,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
   alternateClip: {fileID: 0}
@@ -7557,6 +7766,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -8285,6 +8498,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 1d143e45e875ec74580902dfb340b1ad, type: 3}
   alternateClip: {fileID: 0}
@@ -8480,6 +8697,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -8711,6 +8932,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 4329f56936956ee4bbbf8c030fb5a90e, type: 3}
   alternateClip: {fileID: 0}
@@ -8983,6 +9208,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: Reparar1
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 7beddd28da9a09a499fb49dcaac0a5db, type: 3}
   alternateClip: {fileID: 8300000, guid: 633301d410c4029459a4a0405b67756a, type: 3}
@@ -9537,6 +9766,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 1
   defaultClip: {fileID: 8300000, guid: cfe524c83f80dbd44947189facc9b162, type: 3}
   alternateClip: {fileID: 8300000, guid: 4dae234396dad4f45aca3d94a54f5a5f, type: 3}
@@ -9842,6 +10075,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -10095,6 +10332,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -10326,6 +10567,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -10557,6 +10802,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 4329f56936956ee4bbbf8c030fb5a90e, type: 3}
   alternateClip: {fileID: 0}
@@ -10788,6 +11037,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -11019,6 +11272,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -11272,6 +11529,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -11740,6 +12001,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -12546,6 +12811,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -12799,6 +13068,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -13030,6 +13303,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 4329f56936956ee4bbbf8c030fb5a90e, type: 3}
   alternateClip: {fileID: 0}
@@ -13261,6 +13538,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -13492,6 +13773,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -13723,6 +14008,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -14137,6 +14426,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -14368,6 +14661,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -14621,6 +14918,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 9d56ca121e7ef44438d09efe3f53a135, type: 3}
   alternateClip: {fileID: 0}
@@ -15308,6 +15609,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableID: 
+  loadSceneOnInteract: 0
+  sceneToLoad: 
+  requireItemForSceneChange: 0
+  requiredItemForScene: 
   isToggle: 0
   defaultClip: {fileID: 8300000, guid: 2bd81e7586485a44989d9dedc8ac6b0a, type: 3}
   alternateClip: {fileID: 0}
@@ -15485,6 +15790,7 @@ SceneRoots:
   - {fileID: 5108735}
   - {fileID: 2014419087}
   - {fileID: 1254955180}
+  - {fileID: 524809214}
   - {fileID: 1132729950}
   - {fileID: 881906764}
   - {fileID: 915380392}

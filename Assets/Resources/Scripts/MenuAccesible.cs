@@ -1,14 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class MenuAccesible : MonoBehaviour
 {
     // 0 = Empezar juego
-    // 1 = Salir del juego
+    // 1 = Controles
+    // 2 = Salir del juego
     private int opcionSeleccionada = 0;
 
     [Header("Audios")]
     public AudioClip audioEmpezarJuego;
+    public AudioClip audioControles;
     public AudioClip audioSalirJuego;
 
     private AudioSource audioSource;
@@ -17,26 +20,26 @@ public class MenuAccesible : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        // Al iniciar el menú, siempre empieza en "Empezar juego"
+        // Opción inicial
         opcionSeleccionada = 0;
         ReproducirAudioActual();
     }
 
     void Update()
     {
-        // Cambiar opción (W / Flecha arriba)
+        // Subir opción
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            CambiarOpcion();
+            CambiarOpcion(-1);
         }
 
-        // Cambiar opción (S / Flecha abajo)
+        // Bajar opción
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            CambiarOpcion();
+            CambiarOpcion(1);
         }
 
-        // Confirmar opción
+        // Confirmar
         if (
             Input.GetKeyDown(KeyCode.Space) ||
             Input.GetKeyDown(KeyCode.Return) ||
@@ -47,10 +50,16 @@ public class MenuAccesible : MonoBehaviour
         }
     }
 
-    void CambiarOpcion()
+    void CambiarOpcion(int direccion)
     {
-        // Solo hay 2 opciones, así que alternamos
-        opcionSeleccionada = (opcionSeleccionada == 0) ? 1 : 0;
+        opcionSeleccionada += direccion;
+
+        // Menú circular (0–2)
+        if (opcionSeleccionada < 0)
+            opcionSeleccionada = 2;
+        else if (opcionSeleccionada > 2)
+            opcionSeleccionada = 0;
+
         ReproducirAudioActual();
     }
 
@@ -58,13 +67,17 @@ public class MenuAccesible : MonoBehaviour
     {
         audioSource.Stop();
 
-        if (opcionSeleccionada == 0)
+        switch (opcionSeleccionada)
         {
-            audioSource.clip = audioEmpezarJuego;
-        }
-        else
-        {
-            audioSource.clip = audioSalirJuego;
+            case 0:
+                audioSource.clip = audioEmpezarJuego;
+                break;
+            case 1:
+                audioSource.clip = audioControles;
+                break;
+            case 2:
+                audioSource.clip = audioSalirJuego;
+                break;
         }
 
         audioSource.Play();
@@ -72,15 +85,19 @@ public class MenuAccesible : MonoBehaviour
 
     void EjecutarOpcion()
     {
-        if (opcionSeleccionada == 0)
+        switch (opcionSeleccionada)
         {
-            // Cargar la escena del juego
-            SceneManager.LoadScene("Mapa");
-        }
-        else
-        {
-            // Salir del juego
-            Application.Quit();
+            case 0:
+                SceneManager.LoadScene("Mapa");
+                break;
+
+            case 1:
+                SceneManager.LoadScene("Controles");
+                break;
+
+            case 2:
+                Application.Quit();
+                break;
         }
     }
 }
