@@ -23,20 +23,16 @@ public class IA_Behaviour : MonoBehaviour
 
     void Start()
     {
-
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         enemy_Spawner = FindAnyObjectByType<EnemySpawner>();
+
+        if (enemy_Spawner.contadorVoces == 8)
+            StartCoroutine(player.GetComponent<SimpleFirstPersonController>().MatarJugador());
     }
 
     void Update()
     {
-        if (agent.isStopped && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
-        {
-            player.GetComponent<SimpleFirstPersonController>().FreezePlayer();
-            player.GetComponent<SimpleFirstPersonController>().MatarJugador();
-        }
-
         if (!waiting)
         {
             if (!movingToRandom)
@@ -69,46 +65,38 @@ public class IA_Behaviour : MonoBehaviour
 
     IEnumerator WaitAndCheckPlayer()
     {
-
-        if (enemy_Spawner.contadorVoces == 8)
-        {
-            //StartCoroutine(player.GetComponent<SimpleFirstPersonController>().MatarJugador());
-        }
-
         agent.isStopped = true;
         waiting = true;
 
-        // Guardamos la posición inicial del jugador
-        Vector3 initialPlayerPos = player.transform.position;
+        float waitTime = 5f;
+        float elapsed = 0f;
 
-        // Espera 5 segundos
-        yield return new WaitForSeconds(5f);
+        var controller = player.GetComponent<SimpleFirstPersonController>();
 
-        // Comprueba si el jugador se ha movido
-        float distanceMoved = Vector3.Distance(initialPlayerPos, player.transform.position);
+        while (elapsed < waitTime)
+        {
+            // Si el jugador se mueve en cualquier momento
+            if (controller.isMoving)
+            {
+                Debug.Log("Comamos polvorones Jacobo");
+                StartCoroutine(controller.MatarJugador());
+                yield break; // Salimos de la corrutina
+            }
 
+            elapsed += Time.deltaTime;
+            yield return null; // Espera al siguiente frame
+        }
+
+        // Si llegamos aquí, el jugador NO se movió en 5 segundos
         waiting = false;
 
-        if (distanceMoved < 0.1f) // El jugador no se movió
-        {
-
-            Debug.Log("Pos me voy");// Ir a una posición aleatoria dentro del área
-            randomPos = GetRandomNavMeshPosition();
-            agent.isStopped = false;
-            agent.SetDestination(randomPos);
-            movingToRandom = true;
-        }
-        else
-        {
-            // El jugador se movió, seguir persiguiendo
-            Debug.Log("Pos te persigo y te voy a matar");
-
-            //StartCoroutine(player.GetComponent<SimpleFirstPersonController>().MatarJugador());
-
-
-            agent.isStopped = false;
-        }
+        Debug.Log("Pos me voy");
+        randomPos = GetRandomNavMeshPosition();
+        agent.isStopped = false;
+        agent.SetDestination(randomPos);
+        movingToRandom = true;
     }
+
 
     IEnumerator DisappearAndRespawn()
     {

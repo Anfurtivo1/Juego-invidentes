@@ -28,7 +28,7 @@ public class SimpleFirstPersonController : MonoBehaviour
     private bool isFrozen = false;
 
     private Coroutine footstepCoroutine;
-    private bool isMoving;
+    public bool isMoving;
     public AudioClip sonidoMatar;
 
     private FootstepAudio footstepAudio;
@@ -56,6 +56,8 @@ public class SimpleFirstPersonController : MonoBehaviour
 
     void Update()
     {
+        if (isMoving)
+            Debug.Log("La concha tu mare");
         if (Keyboard.current == null || Mouse.current == null)
             return;
 
@@ -168,6 +170,8 @@ public class SimpleFirstPersonController : MonoBehaviour
     public IEnumerator MatarJugador()
     {
         Debug.Log("Voy a matarte");
+        moveSpeed = 0f;
+        mouseSensitivity = 0f;
         GetComponent<AudioSource>().clip = sonidoMatar;
         GetComponent<AudioSource>().Play();
 
