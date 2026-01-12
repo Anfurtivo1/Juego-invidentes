@@ -675,7 +675,7 @@ Transform:
   m_GameObject: {fileID: 82985348}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.33, y: 1.115, z: 2.2}
+  m_LocalPosition: {x: -9.04, y: 1.115, z: 9.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -698,14 +698,14 @@ MonoBehaviour:
   maxBounds: {x: 35.63, y: 2.54, z: 2.07}
   audioSource: {fileID: 82985351}
   audioSourceMatar: {fileID: 82985352}
-  preSpawnSound1: {fileID: 8300000, guid: cfcc82b98ef71e74d9b0e05fb50fe93f, type: 3}
-  preSpawnSound2: {fileID: 8300000, guid: e04f1172d0fe39e4eb894508eb4ece2b, type: 3}
-  preSpawnSound3: {fileID: 8300000, guid: c3cbf92577f3d5949af1c1417ca82959, type: 3}
-  preSpawnSound4: {fileID: 8300000, guid: 5f34b75f7da6dd24fb8138791fe0542f, type: 3}
-  preSpawnSound5: {fileID: 8300000, guid: a0b6d0006c250cf45af65f448de80526, type: 3}
-  preSpawnSound6: {fileID: 8300000, guid: 0ebdfc23ad964a746b11b5487e7c5e2f, type: 3}
-  preSpawnSound7: {fileID: 8300000, guid: d51c70a2a4932bb48ba090c66fff2841, type: 3}
-  preSpawnSound8: {fileID: 8300000, guid: 96920434222dea54b96b37f1ebb3fa09, type: 3}
+  preSpawnSound1: {fileID: 8300000, guid: d5fe7e711131c6246abeeb65f8796d73, type: 3}
+  preSpawnSound2: {fileID: 8300000, guid: d8b05e3337d58744688420fa2316d6e4, type: 3}
+  preSpawnSound3: {fileID: 8300000, guid: 2371a4571afcc4d4dab43beb50bdde0d, type: 3}
+  preSpawnSound4: {fileID: 8300000, guid: f684cf04478c2144ab4b9dedacac4a51, type: 3}
+  preSpawnSound5: {fileID: 8300000, guid: 6ad42e357f78c6d4d98624a40d92be1a, type: 3}
+  preSpawnSound6: {fileID: 8300000, guid: 69819d7a83c69994fbd489c60a974529, type: 3}
+  preSpawnSound7: {fileID: 8300000, guid: becfed0116f38d549a65867b2a4e8285, type: 3}
+  preSpawnSound8: {fileID: 8300000, guid: 882a22a3f51f1ec419f1665f6902765c, type: 3}
   spawnInterval: 30
   preSpawnDelay: 44
   contadorVoces: 0
@@ -1065,6 +1065,7 @@ MonoBehaviour:
   mouseSensitivity: 0.3
   cameraTransform: {fileID: 330585546}
   footstepInterval: 10
+  isMoving: 0
   sonidoMatar: {fileID: 8300000, guid: 19613ccc2285b6b49bf1ce34440298d1, type: 3}
   move: {x: 0, y: 0, z: 0}
 --- !u!143 &96428707
@@ -4227,7 +4228,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 32562610142a1624fb5222b9f9cc91d1, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!1 &483963182
 GameObject:
@@ -9402,13 +9403,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220361269}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.6, y: -0.20002627, z: 8.908205}
+  m_LocalRotation: {x: -0, y: -0.007481703, z: -0, w: 0.99997205}
+  m_LocalPosition: {x: -13.31, y: -0.20002627, z: 5.93}
   m_LocalScale: {x: 0.66822046, y: 3.673275, z: 1.7441224}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2147255802}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.857, z: 0}
 --- !u!1 &1239845598
 GameObject:
   m_ObjectHideFlags: 0
@@ -14245,7 +14246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1860849461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14253,13 +14254,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860849460}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.00075608835, y: -0.001947283, z: 0.00021750612, w: 0.99999785}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1000584781}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.087, y: -0.223, z: 0.025}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -15755,7 +15756,7 @@ MonoBehaviour:
   - {fileID: 1220361269}
   - {fileID: 825073135}
   sonidoArmario: {fileID: 8300000, guid: 4329f56936956ee4bbbf8c030fb5a90e, type: 3}
-  volumen: 1
+  volumen: 0.5
 --- !u!4 &2147255802
 Transform:
   m_ObjectHideFlags: 0

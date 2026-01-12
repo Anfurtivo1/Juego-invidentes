@@ -166,6 +166,6 @@ public class MinigameController : MonoBehaviour
 
         yield return new WaitForSeconds(monstruoScreamer.length + 2f);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("TutorialGenerador");
     }
 }
